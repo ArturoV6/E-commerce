@@ -91,7 +91,7 @@ class producto {
 
             createDiv2.innerHTML = `<p> ${this.nombre} <span id=cantidad> ${nume} </span>  </p>`
             createDiv3.innerHTML = `<p id=price-p>${numer} <p> $ </p></p>`
-            createDiv9.innerHTML = `<img src=${this.img} class=img-div>`
+            createDiv9.innerHTML = `<img src=${comics.img} class=img-div>`
             createDiv10.innerHTML = `<button id=delete-target> eliminar </button>`
 
             let priceP = document.getElementById("price-p");
@@ -119,108 +119,86 @@ class producto {
     }
     addCarousel(){
         const imagenes = [
-            producto2.img,
-            producto3.img,
-            producto4.img,
-            producto5.img,
-            producto6.img,
-            producto7.img,
-            producto8.img,
-            producto9.img
+            producto1.img,
+            producto2.img
         ];
         
         let aleatorio = Math.floor(Math.random()*imagenes.length);
 
         const carouselContainer = document.getElementById("carousel-container");
         const createDiv1 = document.createElement("div");
+        const fragmento1 = document.createDocumentFragment();
+
+        const createDiv2 = document.createElement("div");
+        const fragmento2 = document.createDocumentFragment();
+
+        const createDiv3 = document.createElement("div");
+        const fragmento3 = document.createDocumentFragment();
+
+        const createDiv4 = document.createElement("div");
+        const fragmento4 = document.createDocumentFragment();
+
+        const createDiv5 = document.createElement("div");
+        const fragmento5 = document.createDocumentFragment();
+
+        const createButton1 = document.createElement("button");
+        const fragmento6 = document.createDocumentFragment();
+
+        const createButton2 = document.createElement("button");
+        const fragmento7 = document.createDocumentFragment();
 
         const createImg = document.createElement("img");
         const fragmento8 = document.createDocumentFragment();
 
-        fragmento8.appendChild(createImg);
-        carouselContainer.appendChild(fragmento8);
+        fragmento5.appendChild(createDiv5);
+        carouselContainer.appendChild(fragmento5)
 
-        createDiv1.setAttribute("class", "carousel-box");
+        fragmento1.appendChild(createDiv1);
+        carouselContainer.appendChild(fragmento1);
+
+        fragmento6.appendChild(createButton1);
+        createDiv5.appendChild(fragmento6);
+
+        fragmento7.appendChild(createButton2);
+        createDiv5.appendChild(fragmento7);
+
+        fragmento8.appendChild(createImg);
+        createDiv1.appendChild(fragmento8);
+
+        createButton1.innerText = "<";
+        createButton2.innerText = ">";
 
         createImg.setAttribute("src", imagenes[aleatorio]);
 
-
-        const sliders = document.querySelector(".carousel-box");
-        var scrollPerClick;
-        var imagePading = 20;
-        var scrollAmount = 0;
-
-        const buttonL = document.getElementById("buttonL");
-        const buttonR = document.getElementById("buttonR");
-
-        buttonL.addEventListener("click", ()=>{
-            sliders.scrollTo({
-                top: 0,
-                left: (scrollAmount -= scrollPerClick),
-                behavior: "smooth"
-            });
-
-            if (scrollAmount < 0) {
-                scrollAmount = 0;
-            }
-        }) 
-
-        buttonR.addEventListener("click", ()=>{
-            if (scrollAmount <= sliders.scrollWidth - sliders.clientWidth) {
-                sliders.scrollTo({
-                top: 0,
-                left: (scrollAmount += scrollPerClick),
-                behavior: "smooth"
-                });
-            }
-        })
     }
 };
 
-const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "asjf");
-const producto3 = new producto ("fq",299, "saef", "/51EwobIYQ2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
-const producto4 = new producto ("fq",299, "saef", "/41Hu-o9I90S._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
-const producto5 = new producto ("fq",299, "saef", "/41Gcl0kSu-L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
-const producto6 = new producto ("fq",299, "saef", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
-const producto7 = new producto ("fq",299, "saef", "/41sBDp+sHvS._SY344_BO1,204,203,200_.png", "ewv");
-const producto8 = new producto ("fq",299, "saef", "/51t5-oH7rhL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
-const producto9 = new producto ("fq",299, "saef", "/418LLznMu2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
+const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.");
+const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png");
 
-const productos = [
-    producto2,
-    producto3,
-    producto4,
-    producto5,
-    producto6,
-    producto7,
-    producto8,
-    producto9
+
+
+const imagenes = [
+    producto1,
+    producto2
 ];
 
-let aleatorio = Math.floor(Math.random()*productos.length);
+let aleatorio = Math.floor(Math.random()*imagenes.length);
 
-producto2.addCarousel();
-producto3.addCarousel();
-producto4.addCarousel();
-producto5.addCarousel();
-producto6.addCarousel();
-producto7.addCarousel();
-producto8.addCarousel();
-producto9.addCarousel();
+let comics = imagenes[aleatorio];
 
-let comic = productos[aleatorio];
+producto1.addCarousel();
 
-comic.addProduct();
+comics.addProduct();
 
 const buyButton = document.getElementById("buy-button");
 buyButton.addEventListener("click", ()=>{
-    comic.addCart();
-
     document.getElementsByClassName("pop")
     [0].classList.add("activar");
 
     document.getElementsByClassName("overlay")
     [0].classList.add("active");
+    producto1.addCart();
 
     const overlay = document.getElementById("overlay");
     overlay.addEventListener("click", ()=>{
