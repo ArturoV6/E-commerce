@@ -121,7 +121,12 @@ class producto {
         const imagenes = [
             producto2.img,
             producto3.img,
-            producto4.img
+            producto4.img,
+            producto5.img,
+            producto6.img,
+            producto7.img,
+            producto8.img,
+            producto9.img
         ];
         
         let aleatorio = Math.floor(Math.random()*imagenes.length);
@@ -143,26 +148,67 @@ class producto {
         const sliders = document.querySelector(".carousel-box");
         var scrollPerClick;
         var imagePading = 20;
+        var scrollAmount = 0;
+
+        const buttonL = document.getElementById("buttonL");
+        const buttonR = document.getElementById("buttonR");
+
+        buttonL.addEventListener("click", ()=>{
+            sliders.scrollTo({
+                top: 0,
+                left: (scrollAmount -= scrollPerClick),
+                behavior: "smooth"
+            });
+
+            if (scrollAmount < 0) {
+                scrollAmount = 0;
+            }
+        }) 
+
+        buttonR.addEventListener("click", ()=>{
+            if (scrollAmount <= sliders.scrollWidth - sliders.clientWidth) {
+                sliders.scrollTo({
+                top: 0,
+                left: (scrollAmount += scrollPerClick),
+                behavior: "smooth"
+                });
+            }
+        })
     }
 };
 
 const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "asjf");
 const producto3 = new producto ("fq",299, "saef", "/51EwobIYQ2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
 const producto4 = new producto ("fq",299, "saef", "/41Hu-o9I90S._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
+const producto5 = new producto ("fq",299, "saef", "/41Gcl0kSu-L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
+const producto6 = new producto ("fq",299, "saef", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
+const producto7 = new producto ("fq",299, "saef", "/41sBDp+sHvS._SY344_BO1,204,203,200_.png", "ewv");
+const producto8 = new producto ("fq",299, "saef", "/51t5-oH7rhL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
+const producto9 = new producto ("fq",299, "saef", "/418LLznMu2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "ewv");
 
-const imagenes = [
+const productos = [
     producto2,
     producto3,
-    producto4
+    producto4,
+    producto5,
+    producto6,
+    producto7,
+    producto8,
+    producto9
 ];
 
-let aleatorio = Math.floor(Math.random()*imagenes.length);
+let aleatorio = Math.floor(Math.random()*productos.length);
 
 producto2.addCarousel();
 producto3.addCarousel();
 producto4.addCarousel();
+producto5.addCarousel();
+producto6.addCarousel();
+producto7.addCarousel();
+producto8.addCarousel();
+producto9.addCarousel();
 
-let comic = imagenes[aleatorio];
+let comic = productos[aleatorio];
 
 comic.addProduct();
 

@@ -54,7 +54,7 @@ header{
 
 .carousel {
     height: 320px;
-    width: 80%;
+    width: 100px;
     position: relative;
 }
 
@@ -65,7 +65,6 @@ header{
 
 .carousel-box{
     height: 320px;
-    width: auto;
     overflow: scroll;
     white-space: nowrap;
     display: inline-block;
