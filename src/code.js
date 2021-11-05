@@ -55,8 +55,12 @@ class producto {
     }
     addCart(){
         const over = document.getElementById("over");
-        const number = this.precio
-        const numer = 299;
+        let number = this.precio
+        const numer = this.precio;
+
+        let numero = 1;
+        const nume = 1;
+        const f = "$"
         if (over.children.length < 1) {
 
             const createDiv2 = document.createElement("div");
@@ -75,11 +79,19 @@ class producto {
             const createDiv6 = document.createElement("div");
             const fragmento6 = document.createDocumentFragment();
 
+            const createDiv9 = document.createElement("div");
+            const fragmento9 = document.createDocumentFragment();
+            const createDiv10 = document.createElement("div");
+            const fragmento10 = document.createDocumentFragment();
+
             fragmento6.appendChild(createDiv6);
             over.appendChild(fragmento6);
 
             fragmento2.appendChild(createDiv2);
             createDiv6.appendChild(fragmento2);
+
+            fragmento9.appendChild(createDiv9);
+            createDiv6.appendChild(fragmento9);
 
             fragmento3.appendChild(createDiv3);
             createDiv6.appendChild(fragmento3);
@@ -90,36 +102,46 @@ class producto {
             fragmento5.appendChild(createButton);
             createDiv4.appendChild(fragmento5);
 
+            fragmento10.appendChild(createDiv10);
+            createDiv6.appendChild(fragmento10);
+
             fragmento5.appendChild(createButton2);
             createDiv4.appendChild(fragmento5);
 
             createButton.innerText="+"
             createButton2.innerText="-"
 
-            createDiv2.innerHTML = `<p> ${this.nombre} </p>`
-            createDiv3.innerHTML = `<p id=price-p>${numer}</p>`
+            createDiv2.innerHTML = `<p> ${this.nombre} <span id=cantidad> ${nume} </span>  </p>`
+            createDiv3.innerHTML = `<p id=price-p>${numer} <p> $ </p></p>`
+            createDiv9.innerHTML = `<img src=${this.img} class=img-div>`
+            createDiv10.innerHTML = `<button id=delete-target> eliminar </button>`
 
             let priceP = document.getElementById("price-p");
+            let cantidad = document.getElementById("cantidad");
         
             createButton.addEventListener("click", (e)=>{
-                priceP.innerText = this.precio += number
-                console.log(number)
+                priceP.innerText = number += numer;
+                cantidad.innerText = numero += nume;
             });
 
             createButton2.addEventListener("click", (e)=>{
-                console.log(priceP.innerText = this.precio -= number)
+                priceP.innerText = number -= numer;
+                cantidad.innerText = numero -= nume;
                 if (priceP.innerText == 0) {
                     console.log(e.target.parentNode.parentNode.remove())
                 }
                 
             });
+
+            const deleteTarget = document.getElementById("delete-target");
+            deleteTarget.addEventListener("click", (e)=>{
+                console.log(e.target.parentNode.parentNode.remove())
+            })
         }
     }
 };
 
 const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51GgmyZXn4L._SX319_BO1,204,203,200_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy.");
-
-console.log(producto1);
 
 producto1.addProduct();
 

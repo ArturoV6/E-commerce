@@ -47,3 +47,7 @@ header{
     opacity: 1;
     transform: scale(1);
 }
+
+.img-div{
+    width: 40%;
+}
