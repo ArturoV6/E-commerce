@@ -14,7 +14,7 @@ class producto {
         obtainDiv.innerHTML = `<p>${this.descripcion}</p>`
 
         const obtainPrice = document.getElementById("price");
-        obtainPrice.innerHTML = `<p id=product-p>${this.precio}</p>`
+        obtainPrice.innerHTML = `${this.precio}`
 
         const obtainA = document.getElementById("author");
         obtainA.innerHTML = `<h2>${this.autor}</h2>`
@@ -55,10 +55,9 @@ class producto {
     }
     addCart(){
         const over = document.getElementById("over");
+        const number = this.precio
+        const numer = 299;
         if (over.children.length < 1) {
-            const productP = document.getElementById("product-p");
-
-            let numero = 299;
 
             const createDiv2 = document.createElement("div");
             const fragmento2 = document.createDocumentFragment();
@@ -98,25 +97,22 @@ class producto {
             createButton2.innerText="-"
 
             createDiv2.innerHTML = `<p> ${this.nombre} </p>`
-            createDiv3.innerHTML = `<p id=price-p> ${productP.innerText} </p>`
+            createDiv3.innerHTML = `<p id=price-p>${numer}</p>`
 
-            const priceP = document.getElementById("price-p");
+            let priceP = document.getElementById("price-p");
         
             createButton.addEventListener("click", (e)=>{
-                if (e == null) {
-                    console.log(z)
-                }
-                priceP.innerText = this.precio = this.precio + numero; 
+                priceP.innerText = this.precio += number
+                console.log(number)
             });
 
-            createButton2.addEventListener("click", (e)=>{   
-                priceP.innerText = this.precio = this.precio - numero;
+            createButton2.addEventListener("click", (e)=>{
+                console.log(priceP.innerText = this.precio -= number)
                 if (priceP.innerText == 0) {
                     console.log(e.target.parentNode.parentNode.remove())
-                }else if(priceP.innerText == -299){
-                    console.log(e.target.parentNode.parentNode.remove())
                 }
-            })
+                
+            });
         }
     }
 };
