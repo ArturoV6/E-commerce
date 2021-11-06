@@ -89,7 +89,7 @@ class producto {
             createButton.innerText="+"
             createButton2.innerText="-"
 
-            createDiv2.innerHTML = `<p> ${this.nombre} <span id=cantidad> ${nume} </span>  </p>`
+            createDiv2.innerHTML = `<p> ${comics.nombre} <span id=cantidad> ${nume} </span>  </p>`
             createDiv3.innerHTML = `<p id=price-p>${numer} <p> $ </p></p>`
             createDiv9.innerHTML = `<img src=${comics.img} class=img-div>`
             createDiv10.innerHTML = `<button id=delete-target> eliminar </button>`
@@ -120,7 +120,13 @@ class producto {
     addCarousel(){
         const imagenes = [
             producto1.img,
-            producto2.img
+            producto2.img,
+            producto3.img,
+            producto4.img,
+            producto5.img,
+            producto6.img,
+            producto7.img,
+            producto8.img
         ];
         
         let aleatorio = Math.floor(Math.random()*imagenes.length);
@@ -129,23 +135,8 @@ class producto {
         const createDiv1 = document.createElement("div");
         const fragmento1 = document.createDocumentFragment();
 
-        const createDiv2 = document.createElement("div");
-        const fragmento2 = document.createDocumentFragment();
-
-        const createDiv3 = document.createElement("div");
-        const fragmento3 = document.createDocumentFragment();
-
-        const createDiv4 = document.createElement("div");
-        const fragmento4 = document.createDocumentFragment();
-
         const createDiv5 = document.createElement("div");
         const fragmento5 = document.createDocumentFragment();
-
-        const createButton1 = document.createElement("button");
-        const fragmento6 = document.createDocumentFragment();
-
-        const createButton2 = document.createElement("button");
-        const fragmento7 = document.createDocumentFragment();
 
         const createImg = document.createElement("img");
         const fragmento8 = document.createDocumentFragment();
@@ -153,34 +144,63 @@ class producto {
         fragmento5.appendChild(createDiv5);
         carouselContainer.appendChild(fragmento5)
 
-        fragmento1.appendChild(createDiv1);
-        carouselContainer.appendChild(fragmento1);
-
-        fragmento6.appendChild(createButton1);
-        createDiv5.appendChild(fragmento6);
-
-        fragmento7.appendChild(createButton2);
-        createDiv5.appendChild(fragmento7);
-
         fragmento8.appendChild(createImg);
-        createDiv1.appendChild(fragmento8);
-
-        createButton1.innerText = "<";
-        createButton2.innerText = ">";
+        createDiv5.appendChild(fragmento8);
 
         createImg.setAttribute("src", imagenes[aleatorio]);
 
+        const buttonL = document.getElementById("buttonL");
+        const buttonR = document.getElementById("buttonR");
+
+        const sliders = document.querySelector(".carousel-box");
+        var scrollAmount = 0;
+        let plusLess = 1100
+
+        buttonL.addEventListener("click", ()=>{
+            console.log()
+            sliders.scrollTo({
+                top: 0,
+                left: (scrollAmount -= plusLess),
+                behavior: "smooth",
+                
+            });
+            if (scrollAmount < 0) {
+                scrollAmount = 0;
+            };
+        });
+
+        buttonR.addEventListener("click", ()=>{
+            if (scrollAmount <= sliders.scrollWidth - sliders.clientWidth) {
+                sliders.scrollTo({
+                    top: 0,
+                    left: (scrollAmount += plusLess),
+                    behavior: "smooth",
+                })
+            }
+        });
     }
 };
 
 const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.");
 const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png");
+const producto3 = new producto ("se", 299, "isd", "/41Hu-o9I90S._SY291_BO1,204,203,200_QL40_FMwebp_.png", "sihbsfsafwa" );
+const producto4 = new producto ("a", 299, "awfAW", "/51EwobIYQ2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");
+const producto5 = new producto ("a", 299, "awfAW", "/41Gcl0kSu-L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");
+const producto6 = new producto ("a", 299, "awfAW", "/51t5-oH7rhL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");
+const producto7 = new producto ("a", 299, "awfAW", "/418LLznMu2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");
+const producto8 = new producto ("a", 299, "awfAW", "/51zpmmYjskL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");
 
 
 
 const imagenes = [
     producto1,
-    producto2
+    producto2,
+    producto3,
+    producto4,
+    producto5,
+    producto6,
+    producto7,
+    producto8
 ];
 
 let aleatorio = Math.floor(Math.random()*imagenes.length);
@@ -188,6 +208,14 @@ let aleatorio = Math.floor(Math.random()*imagenes.length);
 let comics = imagenes[aleatorio];
 
 producto1.addCarousel();
+producto2.addCarousel();
+producto3.addCarousel();
+producto4.addCarousel()
+producto5.addCarousel()
+producto6.addCarousel()
+producto7.addCarousel()
+producto8.addCarousel()
+
 
 comics.addProduct();
 

@@ -52,20 +52,24 @@ header{
     width: 40%;
 }
 
-.carousel {
-    height: 320px;
-    width: 100px;
-    position: relative;
+.carousel{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
 }
+
+.carousel-box{
+    display: flex;
+    overflow-x: hidden;
+}
+
+.carousel-box div img{
+    height: 100%;
+}
+
 
 .carousel button{
     padding: 10px;
     font-size: 20px;
-}
-
-.carousel-box{
-    height: 320px;
-    overflow: scroll;
-    white-space: nowrap;
-    display: inline-block;
+    justify-content: center;
 }
