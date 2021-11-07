@@ -38,7 +38,6 @@ class producto {
 
         let numero = 1;
         const nume = 1;
-        const f = "$"
         if (overlay.children.length < 1) {
 
             const createDiv2 = document.createElement("div");
@@ -66,7 +65,7 @@ class producto {
             overlay.appendChild(fragmento6);
 
             fragmento2.appendChild(createDiv2);
-            createDiv6.appendChild(fragmento2);
+            createDiv6.appendChild(fragmento2); 
 
             fragmento9.appendChild(createDiv9);
             createDiv6.appendChild(fragmento9);
@@ -117,68 +116,6 @@ class producto {
             })
         }
     }
-    addCarousel(){
-        const imagenes = [
-            producto1.img,
-            producto2.img,
-            producto3.img,
-            producto4.img,
-            producto5.img,
-            producto6.img,
-            producto7.img,
-            producto8.img
-        ];
-        
-        let aleatorio = Math.floor(Math.random()*imagenes.length);
-
-        const carouselContainer = document.getElementById("carousel-container");
-        const createDiv1 = document.createElement("div");
-        const fragmento1 = document.createDocumentFragment();
-
-        const createDiv5 = document.createElement("div");
-        const fragmento5 = document.createDocumentFragment();
-
-        const createImg = document.createElement("img");
-        const fragmento8 = document.createDocumentFragment();
-
-        fragmento5.appendChild(createDiv5);
-        carouselContainer.appendChild(fragmento5)
-
-        fragmento8.appendChild(createImg);
-        createDiv5.appendChild(fragmento8);
-
-        createImg.setAttribute("src", imagenes[aleatorio]);
-
-        const buttonL = document.getElementById("buttonL");
-        const buttonR = document.getElementById("buttonR");
-
-        const sliders = document.querySelector(".carousel-box");
-        var scrollAmount = 0;
-        let plusLess = 1100
-
-        buttonL.addEventListener("click", ()=>{
-            console.log()
-            sliders.scrollTo({
-                top: 0,
-                left: (scrollAmount -= plusLess),
-                behavior: "smooth",
-                
-            });
-            if (scrollAmount < 0) {
-                scrollAmount = 0;
-            };
-        });
-
-        buttonR.addEventListener("click", ()=>{
-            if (scrollAmount <= sliders.scrollWidth - sliders.clientWidth) {
-                sliders.scrollTo({
-                    top: 0,
-                    left: (scrollAmount += plusLess),
-                    behavior: "smooth",
-                })
-            }
-        });
-    }
 };
 
 const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.");
@@ -192,7 +129,7 @@ const producto8 = new producto ("a", 299, "awfAW", "/51zpmmYjskL._SY291_BO1,204,
 
 
 
-const imagenes = [
+const imagenes1 = [
     producto1,
     producto2,
     producto3,
@@ -203,19 +140,9 @@ const imagenes = [
     producto8
 ];
 
-let aleatorio = Math.floor(Math.random()*imagenes.length);
+let aleatorio = Math.floor(Math.random()*imagenes1.length);
 
-let comics = imagenes[aleatorio];
-
-producto1.addCarousel();
-producto2.addCarousel();
-producto3.addCarousel();
-producto4.addCarousel()
-producto5.addCarousel()
-producto6.addCarousel()
-producto7.addCarousel()
-producto8.addCarousel()
-
+let comics = imagenes1[aleatorio];
 
 comics.addProduct();
 
