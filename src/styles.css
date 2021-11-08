@@ -39,15 +39,60 @@ header{
     bottom: 0;
     background-color: rgba(0, 0, 0, .5);
     opacity: 0;
-    transform: scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
 }
 
 .activar{
     opacity: 1;
-    transform: scale(1);
+    transform:  scale(1);
+    pointer-events: all;
 }
 
 .img-div{
     width: 40%;
 }
 
+.carousel-box{
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    z-index: ;
+}
+
+
+
+.carousel-box div img{
+    cursor: pointer;
+}
+
+.carousel-box div img:hover{
+    transform: scale(1.1); 
+}
+
+.carousel-box .continer{
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .5);
+    transform: translate(100%, 0);
+    transition: 0.5s linear;
+}
+
+.carousel-box .text{ 
+    position: absolute;
+    left: 190px;
+    bottom: 100px;
+    color: greenyellow;
+    background-color: #232f3e;
+}
+
+.carousel-box div .o{
+    opacity: 1;
+}
+
+
+.carousel-box{
+    overflow: hidden;
+    width: 75%;
+    margin: 0 auto;
+}

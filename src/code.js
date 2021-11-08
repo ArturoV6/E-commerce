@@ -116,6 +116,80 @@ class producto {
             })
         }
     }
+    addCarousel(){
+        const carousel = document.getElementById("carousel");
+
+        const createDiv = document.createElement("div");
+        const fragmento = document.createDocumentFragment();
+
+        const createImg = document.createElement("img");
+        const fragmento2 = document.createDocumentFragment();
+
+        const createP = document.createElement("p");
+        const fragmento3 = document.createDocumentFragment();
+
+        const createDiv2 = document.createElement("div");
+        const fragmento4 = document.createDocumentFragment();
+
+        const createDiv3 = document.createElement("div");
+        const fragmento5 = document.createDocumentFragment();
+
+        fragmento.appendChild(createDiv);
+        carousel.appendChild(fragmento);
+
+        fragmento2.appendChild(createImg);
+        createDiv.appendChild(fragmento2);
+
+        fragmento4.appendChild(createDiv2);
+        createDiv.appendChild(fragmento4);
+
+        fragmento5.appendChild(createDiv3);
+        createDiv2.appendChild(fragmento5);
+
+        createDiv3.innerText="hola"
+
+        createDiv2.setAttribute("class", "continer")
+        createDiv3.setAttribute("class", "text")
+
+        createImg.addEventListener("mouseenter", ()=>{
+            createDiv2.classList.add("o");
+        })
+        
+        createImg.addEventListener("mouseleave", ()=>{
+            createDiv2.classList.remove("o");
+        })
+
+        createImg.setAttribute("src", this.img);
+
+        createP.innerText="hola"
+
+        const sliders = document.querySelector(".carousel-box");
+        var scrollAmount = 0;
+        var scrollPerClick = 1000;
+
+        const buttonL = document.getElementById("scrollL");
+        buttonL.addEventListener("click", ()=>{
+            sliders.scrollTo({
+                top: 0,
+                left: scrollAmount -= scrollPerClick,
+                behavior: "smooth"
+            })
+            if (scrollAmount < 0) {
+                scrollAmount = 0;
+            }
+        })
+        
+        const buttonR = document.getElementById("scrollR");
+        buttonR.addEventListener("click", ()=>{
+            if (scrollAmount <= sliders.scrollWidth - sliders.clientWidth) {
+                sliders.scrollTo({
+                    top: 0,
+                    left: scrollAmount += scrollPerClick,
+                    behavior: "smooth",
+                }) 
+            }
+        })
+    }
 };
 
 const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.");
@@ -145,6 +219,14 @@ let aleatorio = Math.floor(Math.random()*imagenes1.length);
 let comics = imagenes1[aleatorio];
 
 comics.addProduct();
+producto1.addCarousel();
+producto2.addCarousel();
+producto3.addCarousel();
+producto4.addCarousel();
+producto5.addCarousel();
+producto6.addCarousel();
+producto7.addCarousel();
+producto8.addCarousel();
 
 const buyButton = document.getElementById("buy-button");
 buyButton.addEventListener("click", ()=>{
