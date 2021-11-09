@@ -18,8 +18,8 @@ header{
     height: 100%;
     width: 15%;
     text-align: center;
-    z-index: 10;
     opacity: 0;
+    z-index: 10;
     transform: scale(0.5);
     transform: translateZ(0) translateX(100%);
     transition: 0.4s ease-in-out;
@@ -37,6 +37,7 @@ header{
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 10;
     background-color: rgba(0, 0, 0, .5);
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
@@ -53,46 +54,31 @@ header{
 }
 
 .carousel-box{
-    padding: 20px;
     position: relative;
     display: flex;
+    width: 80%;
+    margin: 0 auto;
     flex-direction: row;
-    z-index: ;
+    overflow-x: hidden;
 }
-
-
 
 .carousel-box div img{
     cursor: pointer;
+    position: relative;
 }
 
-.carousel-box div img:hover{
-    transform: scale(1.1); 
-}
-
-.carousel-box .continer{
-    position: absolute;
+.continer{
+    background-color: grey;
+    bottom: 40%;
+    left: 250px;
+    color: #fff;
     opacity: 0;
-    background-color: rgba(0, 0, 0, .5);
-    transform: translate(100%, 0);
-    transition: 0.5s linear;
+    transition: transform 0.5s ease;   
 }
 
-.carousel-box .text{ 
-    position: absolute;
-    left: 190px;
-    bottom: 100px;
-    color: greenyellow;
-    background-color: #232f3e;
-}
-
-.carousel-box div .o{
+.layer{
+    cursor: pointer;
+    position: relative;
     opacity: 1;
-}
-
-
-.carousel-box{
-    overflow: hidden;
-    width: 75%;
-    margin: 0 auto;
+    transform: translateZ(0) translateX(-100%);
 }

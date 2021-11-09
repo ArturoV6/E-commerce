@@ -146,17 +146,17 @@ class producto {
         fragmento5.appendChild(createDiv3);
         createDiv2.appendChild(fragmento5);
 
-        createDiv3.innerText="hola"
+        createDiv3.innerText=`${this.nombre}`
 
         createDiv2.setAttribute("class", "continer")
         createDiv3.setAttribute("class", "text")
 
-        createImg.addEventListener("mouseenter", ()=>{
-            createDiv2.classList.add("o");
+        createDiv.addEventListener("mouseenter", ()=>{
+            createDiv2.classList.add("layer");
         })
         
-        createImg.addEventListener("mouseleave", ()=>{
-            createDiv2.classList.remove("o");
+        createDiv.addEventListener("mouseleave", ()=>{
+            createDiv2.classList.remove("layer");
         })
 
         createImg.setAttribute("src", this.img);
