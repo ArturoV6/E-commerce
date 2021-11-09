@@ -1,8 +1,11 @@
 class producto {
-    constructor (nombre, precio, autor, img, descripcion){
+    constructor (nombre, precio, autor, img, descripcion, editorial, idioma, paginas){
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
+        this.editorial = editorial;
+        this.idioma = idioma;
+        this.paginas = paginas;
         this.img = img;
         this.autor = autor;
     }
@@ -161,7 +164,7 @@ class producto {
 
         createImg.setAttribute("src", this.img);
 
-        createP.innerText="hola"
+        createP.innerText=`<a>${this.nombre}</a>`
 
         const sliders = document.querySelector(".carousel-box");
         var scrollAmount = 0;
@@ -190,9 +193,14 @@ class producto {
             }
         })
     }
+    addDetails(){
+        const detailsContainer = document.getElementById("details-container");
+        
+        detailsContainer.innerHTML = `<p>${this.editorial} <br> ${this.idioma} <br> ${this.paginas}</p>`
+    }
 };
 
-const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.");
+const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.", "DC comics", "Ingles", "97 paginas");
 const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png");
 const producto3 = new producto ("se", 299, "isd", "/41Hu-o9I90S._SY291_BO1,204,203,200_QL40_FMwebp_.png", "sihbsfsafwa" );
 const producto4 = new producto ("a", 299, "awfAW", "/51EwobIYQ2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");
@@ -227,6 +235,8 @@ producto5.addCarousel();
 producto6.addCarousel();
 producto7.addCarousel();
 producto8.addCarousel();
+
+comics.addDetails();
 
 const buyButton = document.getElementById("buy-button");
 buyButton.addEventListener("click", ()=>{

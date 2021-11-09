@@ -22,7 +22,7 @@ header{
     z-index: 10;
     transform: scale(0.5);
     transform: translateZ(0) translateX(100%);
-    transition: 0.4s ease-in-out;
+    transition: 0.4s cubic-bezier(0.29, 0.24, 0.28, 1.08);
 }
 
 .active{
@@ -71,14 +71,15 @@ header{
     background-color: grey;
     bottom: 40%;
     left: 250px;
+    position: relative;
     color: #fff;
     opacity: 0;
-    transition: transform 0.5s ease;   
+    transition: 0.3s cubic-bezier(0.29, 0.24, 0.28, 1.08);  
+      
 }
 
 .layer{
     cursor: pointer;
-    position: relative;
     opacity: 1;
-    transform: translateZ(0) translateX(-100%);
+    transform: translateZ(0) translateX(-100%); 
 }
