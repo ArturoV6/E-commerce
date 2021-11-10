@@ -1,11 +1,14 @@
 class producto {
-    constructor (nombre, precio, autor, img, descripcion, editorial, idioma, paginas){
+    constructor (nombre, precio, autor, img, descripcion, editorial, idioma, paginas, publicacion, peso, dimension){
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
         this.editorial = editorial;
         this.idioma = idioma;
         this.paginas = paginas;
+        this.publicacion = publicacion;
+        this.peso = peso;
+        this.dimension = dimension
         this.img = img;
         this.autor = autor;
     }
@@ -109,8 +112,7 @@ class producto {
                 cantidad.innerText = numero -= nume;
                 if (priceP.innerText == 0) {
                     console.log(e.target.parentNode.parentNode.remove())
-                }
-                
+                } 
             });
 
             const deleteTarget = document.getElementById("delete-target");
@@ -128,14 +130,8 @@ class producto {
         const createImg = document.createElement("img");
         const fragmento2 = document.createDocumentFragment();
 
-        const createP = document.createElement("p");
-        const fragmento3 = document.createDocumentFragment();
-
         const createDiv2 = document.createElement("div");
-        const fragmento4 = document.createDocumentFragment();
-
-        const createDiv3 = document.createElement("div");
-        const fragmento5 = document.createDocumentFragment();
+        const fragmento3 = document.createDocumentFragment();
 
         fragmento.appendChild(createDiv);
         carousel.appendChild(fragmento);
@@ -143,28 +139,12 @@ class producto {
         fragmento2.appendChild(createImg);
         createDiv.appendChild(fragmento2);
 
-        fragmento4.appendChild(createDiv2);
-        createDiv.appendChild(fragmento4);
-
-        fragmento5.appendChild(createDiv3);
-        createDiv2.appendChild(fragmento5);
-
-        createDiv3.innerText=`${this.nombre}`
-
-        createDiv2.setAttribute("class", "continer")
-        createDiv3.setAttribute("class", "text")
-
-        createDiv.addEventListener("mouseenter", ()=>{
-            createDiv2.classList.add("layer");
-        })
-        
-        createDiv.addEventListener("mouseleave", ()=>{
-            createDiv2.classList.remove("layer");
-        })
+        fragmento3.appendChild(createDiv2);
+        createDiv.appendChild(fragmento3);
 
         createImg.setAttribute("src", this.img);
 
-        createP.innerText=`<a>${this.nombre}</a>`
+        createDiv2.innerHTML=`<p> ${this.nombre} <br> ${this.precio}$</p>`
 
         const sliders = document.querySelector(".carousel-box");
         var scrollAmount = 0;
@@ -196,11 +176,11 @@ class producto {
     addDetails(){
         const detailsContainer = document.getElementById("details-container");
         
-        detailsContainer.innerHTML = `<p>${this.editorial} <br> ${this.idioma} <br> ${this.paginas}</p>`
+        detailsContainer.innerHTML = `<p>${this.editorial} <br> ${this.idioma} <br> ${this.paginas} <br> ${this.publicacion} <br> ${this.peso} <br> ${this.dimension}</p>`
     }
 };
 
-const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.", "DC comics", "Ingles", "97 paginas");
+const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.", "DC comics", "Ingles", "97 paginas", "17 Septiembre 2019", "11 pounds", "7.45 x 0.49 x 11.14 pulgadas");
 const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png");
 const producto3 = new producto ("se", 299, "isd", "/41Hu-o9I90S._SY291_BO1,204,203,200_QL40_FMwebp_.png", "sihbsfsafwa" );
 const producto4 = new producto ("a", 299, "awfAW", "/51EwobIYQ2L._SY291_BO1,204,203,200_QL40_FMwebp_.png", "zsdawef");

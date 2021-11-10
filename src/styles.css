@@ -54,32 +54,25 @@ header{
 }
 
 .carousel-box{
-    position: relative;
     display: flex;
     width: 80%;
     margin: 0 auto;
     flex-direction: row;
     overflow-x: hidden;
+    padding: 25px;
 }
 
-.carousel-box div img{
+.carousel-box div{
+    padding: 5px;
+}
+
+.carousel-box div:hover{
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
     cursor: pointer;
-    position: relative;
 }
 
-.continer{
-    background-color: grey;
-    bottom: 40%;
-    left: 250px;
-    position: relative;
-    color: #fff;
-    opacity: 0;
-    transition: 0.3s cubic-bezier(0.29, 0.24, 0.28, 1.08);  
-      
+.carousel-box p{
+    text-align: center;
 }
 
-.layer{
-    cursor: pointer;
-    opacity: 1;
-    transform: translateZ(0) translateX(-100%); 
-}
