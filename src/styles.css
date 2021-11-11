@@ -18,9 +18,9 @@ header{
     height: 100%;
     width: 15%;
     text-align: center;
-    opacity: 0;
     z-index: 10;
     transform: scale(0.5);
+    opacity: 0;
     transform: translateZ(0) translateX(100%);
     transition: 0.4s cubic-bezier(0.29, 0.24, 0.28, 1.08);
 }
@@ -38,9 +38,9 @@ header{
     left: 0;
     bottom: 0;
     z-index: 10;
+    opacity: 1;
     background-color: rgba(0, 0, 0, .5);
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-60%, -80%) scale(0.5);
 }
 
 .activar{
@@ -76,3 +76,6 @@ header{
     text-align: center;
 }
 
+.div-boton button{
+    cursor: pointer;
+}

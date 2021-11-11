@@ -14,23 +14,23 @@ class producto {
     }
     addProduct(){
         const obtain = document.getElementById("title");
-        obtain.innerHTML=`<h1>${this.nombre}</h1>`
+        obtain.innerHTML=`<h1>${comics.nombre}</h1>`
 
         const obtainDiv = document.getElementById("description");
-        obtainDiv.innerHTML = `<p>${this.descripcion}</p>`
+        obtainDiv.innerHTML = `<p>${comics.descripcion}</p>`
 
         const obtainPrice = document.getElementById("price");
-        obtainPrice.innerHTML = `${this.precio}`
+        obtainPrice.innerHTML = `${comics.precio}`
 
         const obtainA = document.getElementById("author");
-        obtainA.innerHTML = `<h2>${this.autor}</h2>`
+        obtainA.innerHTML = `<h2>${comics.autor}</h2>`
 
         const obtainImg = document.getElementById("img");
         const createImg = document.createElement("img");
         const createSrc = document.createAttribute("src")
         const fragmento = document.createDocumentFragment();
 
-        createSrc.value = this.img;
+        createSrc.value = comics.img;
 
         createImg.setAttributeNode(createSrc);
 
@@ -207,6 +207,7 @@ let aleatorio = Math.floor(Math.random()*imagenes1.length);
 let comics = imagenes1[aleatorio];
 
 comics.addProduct();
+
 producto1.addCarousel();
 producto2.addCarousel();
 producto3.addCarousel();
@@ -217,6 +218,106 @@ producto7.addCarousel();
 producto8.addCarousel();
 
 comics.addDetails();
+
+const submitComent = document.getElementById("submit-coment");
+submitComent.addEventListener("click", ()=>{
+    const inputTitle = document.getElementById("input-title");
+    const titleInput = inputTitle.value;
+
+    const inputText = document.getElementById("input-text");
+    const textInput = inputText.value;
+
+    const coomentSection = document.getElementById("cooment-section");
+
+    const warningContainer = document.getElementById("warning-container");
+
+    if (titleInput <= 5 || textInput <= 10) {
+
+        warningContainer.innerHTML=`<p id=error-text>no agregaste sufieciente texto</p>`
+ 
+    }else{
+        if (warningContainer.children.length >= 1) {
+            const errorText = document.getElementById("error-text");
+            warningContainer.removeChild(errorText); 
+
+            const createDiv = document.createElement("div");
+            const fragmento = document.createDocumentFragment();
+    
+            const createDiv2 = document.createElement("div");
+            const fragmento2 = document.createDocumentFragment();
+    
+            const createDiv3 = document.createElement("div");
+            const fragmento3 = document.createDocumentFragment();
+    
+            const button = document.createElement("div");
+            const fragmento4 = document.createDocumentFragment();
+    
+            fragmento.appendChild(createDiv);
+            coomentSection.appendChild(fragmento);
+    
+            createDiv.innerHTML=`<p> ${titleInput} </p>`
+    
+            fragmento2.appendChild(createDiv2);
+            createDiv.appendChild(fragmento2);
+    
+            createDiv2.innerHTML=`<p> ${textInput} </p>`
+    
+            fragmento3.appendChild(createDiv3);
+            createDiv.appendChild(fragmento3); 
+    
+            fragmento4.appendChild(button);
+            createDiv3.appendChild(fragmento4); 
+    
+            button.innerHTML="&timesb;"
+    
+            button.addEventListener("click", (e)=>{
+                e.target.parentNode.parentNode.remove()
+            }) 
+        }else{
+            succesContainer.innerHTML=`<p id=succes-text>Comentario añadido</p>`
+
+            const succesText = document.getElementById("succes-text");
+
+            setTimeout(()=>{
+                succesContainer.appendChild(succesText)
+            }, 1000)
+
+            const createDiv = document.createElement("div");
+            const fragmento = document.createDocumentFragment();
+    
+            const createDiv2 = document.createElement("div");
+            const fragmento2 = document.createDocumentFragment();
+    
+            const createDiv3 = document.createElement("div");
+            const fragmento3 = document.createDocumentFragment();
+    
+            const button = document.createElement("div");
+            const fragmento4 = document.createDocumentFragment();
+    
+            fragmento.appendChild(createDiv);
+            coomentSection.appendChild(fragmento);
+    
+            createDiv.innerHTML=`<p> ${titleInput} </p>`
+    
+            fragmento2.appendChild(createDiv2);
+            createDiv.appendChild(fragmento2);
+    
+            createDiv2.innerHTML=`<p> ${textInput} </p>`
+    
+            fragmento3.appendChild(createDiv3);
+            createDiv.appendChild(fragmento3); 
+    
+            fragmento4.appendChild(button);
+            createDiv3.appendChild(fragmento4); 
+    
+            button.innerHTML="&timesb;"
+    
+            button.addEventListener("click", (e)=>{
+                e.target.parentNode.parentNode.remove()
+            })   
+        }
+    }
+})
 
 const buyButton = document.getElementById("buy-button");
 buyButton.addEventListener("click", ()=>{
