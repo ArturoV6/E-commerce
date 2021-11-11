@@ -192,9 +192,9 @@ const producto8 = new producto ("a", 299, "awfAW", "/51zpmmYjskL._SY291_BO1,204,
 
 
 const imagenes1 = [
-    producto1,
-    producto2,
     producto3,
+    producto2,
+    producto1,
     producto4,
     producto5,
     producto6,
@@ -219,6 +219,33 @@ producto8.addCarousel();
 
 comics.addDetails();
 
+let calificacion;
+
+const rate5 = document.getElementById("rate-5");
+rate5.addEventListener("click", () =>{
+    calificacion = `<label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label>`;
+});
+
+const rate4 = document.getElementById("rate-4");
+rate4.addEventListener("click", () =>{
+    calificacion = `<label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label>`;
+});
+
+const rate3 = document.getElementById("rate-3");
+rate3.addEventListener("click", () =>{
+    calificacion = `<label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label>`;
+});
+
+const rate2 = document.getElementById("rate-2");
+rate2.addEventListener("click", () =>{
+    calificacion = `<label for="rate-5" class="fas fa-star"></label> <label for="rate-5" class="fas fa-star"></label>`;
+});
+
+const rate1 = document.getElementById("rate-1");
+rate1.addEventListener("click", () =>{
+    calificacion = `<label for="rate-5" class="fas fa-star"></label>`;
+});
+
 const submitComent = document.getElementById("submit-coment");
 submitComent.addEventListener("click", ()=>{
     const inputTitle = document.getElementById("input-title");
@@ -231,12 +258,13 @@ submitComent.addEventListener("click", ()=>{
 
     const warningContainer = document.getElementById("warning-container");
 
-    if (titleInput <= 5 || textInput <= 10) {
+    if (titleInput <= 1 || textInput <= 1 || calificacion == undefined) {
 
-        warningContainer.innerHTML=`<p id=error-text>no agregaste sufieciente texto</p>`
+        warningContainer.innerHTML=`<p id=error-text>por favor utiliza todos las herramientas</p>`
  
     }else{
         if (warningContainer.children.length >= 1) {
+            console.log(calificacion);
             const errorText = document.getElementById("error-text");
             warningContainer.removeChild(errorText); 
 
@@ -251,37 +279,46 @@ submitComent.addEventListener("click", ()=>{
     
             const button = document.createElement("div");
             const fragmento4 = document.createDocumentFragment();
-    
+
+            const createDiv4 = document.createElement("div");
+            const fragmento5 = document.createDocumentFragment();
+
+            const createDiv5 = document.createElement("div");
+            const fragmento6 = document.createDocumentFragment();
+
             fragmento.appendChild(createDiv);
             coomentSection.appendChild(fragmento);
-    
-            createDiv.innerHTML=`<p> ${titleInput} </p>`
-    
+
             fragmento2.appendChild(createDiv2);
             createDiv.appendChild(fragmento2);
-    
-            createDiv2.innerHTML=`<p> ${textInput} </p>`
-    
+
+            createDiv2.innerHTML=calificacion;
+
             fragmento3.appendChild(createDiv3);
-            createDiv.appendChild(fragmento3); 
-    
+            createDiv.appendChild(fragmento3);
+
+            createDiv3.innerHTML=`<h3> ${titleInput} </h3>`;
+
+            fragmento5.appendChild(createDiv4);
+            createDiv.appendChild(fragmento5);
+
+            createDiv4.innerHTML`<p> ${textInput} </p>`;
+
+            fragmento6.appendChild(createDiv5);
+            createDiv.appendChild(fragmento6);
+
             fragmento4.appendChild(button);
-            createDiv3.appendChild(fragmento4); 
-    
-            button.innerHTML="&timesb;"
+            createDiv5.appendChild(fragmento4);
+
+            button.innerText=`&timesb`
+            
     
             button.addEventListener("click", (e)=>{
                 e.target.parentNode.parentNode.remove()
             }) 
+
         }else{
-            succesContainer.innerHTML=`<p id=succes-text>Comentario añadido</p>`
-
-            const succesText = document.getElementById("succes-text");
-
-            setTimeout(()=>{
-                succesContainer.appendChild(succesText)
-            }, 1000)
-
+            console.log(calificacion);
             const createDiv = document.createElement("div");
             const fragmento = document.createDocumentFragment();
     
@@ -293,28 +330,43 @@ submitComent.addEventListener("click", ()=>{
     
             const button = document.createElement("div");
             const fragmento4 = document.createDocumentFragment();
+
+            const createDiv4 = document.createElement("div");
+            const fragmento5 = document.createDocumentFragment();
     
+            const createDiv5 = document.createElement("div");
+            const fragmento6 = document.createDocumentFragment();
+
             fragmento.appendChild(createDiv);
             coomentSection.appendChild(fragmento);
-    
-            createDiv.innerHTML=`<p> ${titleInput} </p>`
-    
+
             fragmento2.appendChild(createDiv2);
             createDiv.appendChild(fragmento2);
-    
-            createDiv2.innerHTML=`<p> ${textInput} </p>`
-    
+
+            createDiv2.innerHTML=calificacion;
+
             fragmento3.appendChild(createDiv3);
-            createDiv.appendChild(fragmento3); 
-    
+            createDiv.appendChild(fragmento3);
+
+            createDiv3.innerHTML=`<h3> ${titleInput} </h3>`;
+
+            fragmento5.appendChild(createDiv4);
+            createDiv.appendChild(fragmento5);
+
+            createDiv4.innerHTML=`<p> ${textInput} </p>`;
+
+            fragmento6.appendChild(createDiv5);
+            createDiv.appendChild(fragmento6);
+
             fragmento4.appendChild(button);
-            createDiv3.appendChild(fragmento4); 
-    
-            button.innerHTML="&timesb;"
+            createDiv5.appendChild(fragmento4);
+
+            button.innerText=`&timesb`;
     
             button.addEventListener("click", (e)=>{
                 e.target.parentNode.parentNode.remove()
             })   
+
         }
     }
 })
@@ -357,7 +409,7 @@ headerOverlay.addEventListener("click", ()=>{
 });
 
 const spanX = document.getElementById("span-x");
-spanX.addEventListener("click", (e)=>{
+spanX.addEventListener("click", ()=>{
     document.getElementsByClassName("overlay")
         [0].classList.remove("active");
 
