@@ -19,6 +19,7 @@ header{
     width: 15%;
     text-align: center;
     z-index: 10;
+    opacity: 0;
     transform: scale(0.5);
     opacity: 0;
     transform: translateZ(0) translateX(100%);
@@ -54,6 +55,8 @@ header{
 }
 
 .carousel-box{
+    padding: 20px;
+    position: relative;
     display: flex;
     width: 80%;
     margin: 0 auto;
@@ -88,7 +91,7 @@ header{
 
 .star-widget input{
     display: none;
-  }
+}
 
 .star-widget label{
     color: #444;

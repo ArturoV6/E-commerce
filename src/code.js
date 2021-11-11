@@ -111,13 +111,15 @@ class producto {
                 priceP.innerText = number -= numer;
                 cantidad.innerText = numero -= nume;
                 if (priceP.innerText == 0) {
-                    console.log(e.target.parentNode.parentNode.remove())
+                    buyButton.innerText="Add to cart";
+                    e.target.parentNode.parentNode.remove()
                 } 
             });
 
             const deleteTarget = document.getElementById("delete-target");
             deleteTarget.addEventListener("click", (e)=>{
                 console.log(e.target.parentNode.parentNode.remove())
+                buyButton.innerText="Add to cart";
             })
         }
     }
@@ -178,7 +180,7 @@ class producto {
         
         detailsContainer.innerHTML = `<p>${this.editorial} <br> ${this.idioma} <br> ${this.paginas} <br> ${this.publicacion} <br> ${this.peso} <br> ${this.dimension}</p>`
     }
-};
+}
 
 const producto1 = new producto ("The killing joke", 299, "Alan Moore", "/51ss9Co9VzL._SY291_BO1,204,203,200_QL40_FMwebp_.png", "Presented for the first time with stark, stunning new coloring by Bolland, Batman: The Killing Joke is Alan Moore's unforgettable meditation on the razor-thin line between sanity and insanity, heroism and villainy, comedy and tragedy. <br> According to the grinning engine of madness and mayhem known as The Joker, that's all that separates the sane from the psychotic. Freed once again from the confines of Arkham Asylum, he's out to prove his deranged point. And he's going to use Gotham City's top cop, Commissioner Jim Gordon, and his brilliant and beautiful daughter Barbara to do it.", "DC comics", "Ingles", "97 paginas", "17 Septiembre 2019", "11 pounds", "7.45 x 0.49 x 11.14 pulgadas");
 const producto2 = new producto ("ef", 299, "ujfn", "/51j1lVj-caL._SY291_BO1,204,203,200_QL40_FMwebp_.png");
@@ -369,10 +371,13 @@ submitComent.addEventListener("click", ()=>{
 
         }
     }
-})
+});     
 
 const buyButton = document.getElementById("buy-button");
+const overlay = document.getElementById("overlay");
+
 buyButton.addEventListener("click", ()=>{
+    
     document.getElementsByClassName("pop")
     [0].classList.add("activar");
 
@@ -380,11 +385,12 @@ buyButton.addEventListener("click", ()=>{
     [0].classList.add("active");
     producto1.addCart();
 
-    const overlay = document.getElementById("overlay");
+    buyButton.innerText="See Cart";
+    
     overlay.addEventListener("click", ()=>{
         document.getElementsByClassName("overlay")
         [0].classList.remove("active");
-
+        
         document.getElementsByClassName("pop")
         [0].classList.remove("activar");
     })
@@ -414,5 +420,5 @@ spanX.addEventListener("click", ()=>{
         [0].classList.remove("active");
 
         document.getElementsByClassName("pop")
-        [0].classList.remove("activar");
+        [0].classList.remove("activar");      
 });
