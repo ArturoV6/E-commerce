@@ -375,9 +375,15 @@ submitComent.addEventListener("click", ()=>{
 
 const buyButton = document.getElementById("buy-button");
 const overlay = document.getElementById("overlay");
+const headerOverlay = document.getElementById("header-overlay");
+
+function disableScroll(){  
+    window.scrollTo(0,0);
+}
 
 buyButton.addEventListener("click", ()=>{
-    
+    window.addEventListener('scroll', disableScroll);
+
     document.getElementsByClassName("pop")
     [0].classList.add("activar");
 
@@ -388,16 +394,20 @@ buyButton.addEventListener("click", ()=>{
     buyButton.innerText="See Cart";
     
     overlay.addEventListener("click", ()=>{
+
         document.getElementsByClassName("overlay")
         [0].classList.remove("active");
         
         document.getElementsByClassName("pop")
         [0].classList.remove("activar");
+
+        window.removeEventListener('scroll', disableScroll); 
     })
 });
 
-const headerOverlay = document.getElementById("header-overlay");
 headerOverlay.addEventListener("click", ()=>{
+    window.addEventListener('scroll', disableScroll);
+
     document.getElementsByClassName("overlay")
     [0].classList.add("active");
 
@@ -406,11 +416,14 @@ headerOverlay.addEventListener("click", ()=>{
 
     const overlay = document.getElementById("overlay");
     overlay.addEventListener("click", ()=>{
+
         document.getElementsByClassName("overlay")
         [0].classList.remove("active");
 
         document.getElementsByClassName("pop")
         [0].classList.remove("activar");
+
+        window.removeEventListener('scroll', disableScroll); 
     })
 });
 
@@ -420,5 +433,7 @@ spanX.addEventListener("click", ()=>{
         [0].classList.remove("active");
 
         document.getElementsByClassName("pop")
-        [0].classList.remove("activar");      
+        [0].classList.remove("activar"); 
+        
+        window.removeEventListener('scroll', disableScroll);
 });
