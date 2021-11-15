@@ -371,16 +371,8 @@ submitComent.addEventListener("click", ()=>{
     }
 });
 
-function disableScroll(){  
-    var x = window.scrollX;
-    var y = window.scrollY;
-    window.onscroll = function(){ window.scrollTo(x, y) };
-}
-
-
 const buyButton = document.getElementById("buy-button");
 buyButton.addEventListener("click", ()=>{
-    window.addEventListener('scroll', disableScroll);
 
     document.getElementsByClassName("pop")
     [0].classList.add("activar");
@@ -390,8 +382,7 @@ buyButton.addEventListener("click", ()=>{
     producto1.addCart();
 
     const overlay = document.getElementById("overlay");
-    overlay.addEventListener("click", ()=>{
-        window.removeEventListener('scroll', disableScroll);  
+    overlay.addEventListener("click", ()=>{  
 
         document.getElementsByClassName("overlay")
         [0].classList.remove("active");
@@ -403,7 +394,6 @@ buyButton.addEventListener("click", ()=>{
 
 const headerOverlay = document.getElementById("header-overlay");
 headerOverlay.addEventListener("click", ()=>{
-    window.addEventListener('scroll', disableScroll);
 
     document.getElementsByClassName("overlay")
     [0].classList.add("active");
@@ -412,8 +402,7 @@ headerOverlay.addEventListener("click", ()=>{
     [0].classList.add("activar");
 
     const overlay = document.getElementById("overlay");
-    overlay.addEventListener("click", ()=>{
-        window.removeEventListener('scroll', disableScroll);  
+    overlay.addEventListener("click", ()=>{ 
 
         document.getElementsByClassName("overlay")
         [0].classList.remove("active");
@@ -424,8 +413,7 @@ headerOverlay.addEventListener("click", ()=>{
 });
 
 const spanX = document.getElementById("span-x");
-spanX.addEventListener("click", ()=>{
-    window.removeEventListener('scroll', disableScroll);  
+spanX.addEventListener("click", ()=>{  
 
     document.getElementsByClassName("overlay")
         [0].classList.remove("active");
