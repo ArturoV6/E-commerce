@@ -108,9 +108,8 @@ input:checked ~ label{
 
 input#rate-5:checked ~ label{
     color: #fe7;
-    text-shadow: 0 0 20px #952;
 }
 
 .fas{
-    color: #fd4;;
+    color: #fd4;
 }
