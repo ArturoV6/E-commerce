@@ -5,9 +5,24 @@
 }
 
 header{
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     background-color: #232f3e;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+}
+
+header span{
+    font-size: 25px;
+}
+
+.fa-shopping-cart:hover{
+    color: #fff;
+}
+
+main{
+    padding-top: 60px;
 }
 
 .overlay{
@@ -19,10 +34,12 @@ header{
     width: 15%;
     text-align: center;
     z-index: 10;
+    opacity: 0;
     transform: scale(0.5);
     opacity: 0;
     transform: translateZ(0) translateX(100%);
     transition: 0.4s cubic-bezier(0.29, 0.24, 0.28, 1.08);
+    will-change: opacity;
 }
 
 .active{
@@ -38,7 +55,7 @@ header{
     left: 0;
     bottom: 0;
     z-index: 10;
-    opacity: 1;
+    opacity: 0;
     background-color: rgba(0, 0, 0, .5);
     transform: translate(-60%, -80%) scale(0.5);
 }
@@ -54,6 +71,7 @@ header{
 }
 
 .carousel-box{
+    padding: 20px;
     display: flex;
     width: 80%;
     margin: 0 auto;
@@ -88,7 +106,7 @@ header{
 
 .star-widget input{
     display: none;
-  }
+}
 
 .star-widget label{
     color: #444;
@@ -110,6 +128,7 @@ input#rate-5:checked ~ label{
     color: #fe7;
 }
 
-.fas{
-    color: #fd4;
+.fa-star{
+    color: #fd4;;
 }
+
