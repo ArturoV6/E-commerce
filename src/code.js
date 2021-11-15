@@ -111,8 +111,8 @@ class producto {
                 priceP.innerText = number -= numer;
                 cantidad.innerText = numero -= nume;
                 if (priceP.innerText == 0) {
-                    buyButton.innerText="Add to cart";
                     e.target.parentNode.parentNode.remove()
+                    buyButton.innerText="Add to cart";
                 } 
             });
 
@@ -374,9 +374,14 @@ submitComent.addEventListener("click", ()=>{
 });
 
 const buyButton = document.getElementById("buy-button");
+const headerOverlay = document.getElementById("header-overlay");
 const overlay = document.getElementById("overlay");
+const body = document.getElementById("body");
 
 buyButton.addEventListener("click", ()=>{
+    buyButton.innerText="See cart";
+
+    body.classList.add("body")
 
     document.getElementsByClassName("pop")
     [0].classList.add("activar");
@@ -384,9 +389,20 @@ buyButton.addEventListener("click", ()=>{
     document.getElementsByClassName("overlay")
     [0].classList.add("active");
     producto1.addCart();
+
+    overlay.addEventListener("click", ()=>{
+        body.classList.remove("body")
+        
+        document.getElementsByClassName("overlay")
+        [0].classList.remove("active");
+
+        document.getElementsByClassName("pop")
+        [0].classList.remove("activar"); 
+    });
 });
 
 headerOverlay.addEventListener("click", ()=>{
+    body.classList.add("body")
 
     document.getElementsByClassName("overlay")
     [0].classList.add("active");
@@ -394,20 +410,20 @@ headerOverlay.addEventListener("click", ()=>{
     document.getElementsByClassName("pop")
     [0].classList.add("activar");
 
-    const overlay = document.getElementById("overlay");
-    overlay.addEventListener("click", ()=>{ 
+    overlay.addEventListener("click", ()=>{
+        body.classList.remove("body")
 
         document.getElementsByClassName("overlay")
         [0].classList.remove("active");
 
         document.getElementsByClassName("pop")
-        [0].classList.remove("activar");
-
-    })
+        [0].classList.remove("activar"); 
+    });
 });
 
 const spanX = document.getElementById("span-x");
 spanX.addEventListener("click", ()=>{  
+    body.classList.remove("body")
 
     document.getElementsByClassName("overlay")
         [0].classList.remove("active");
